@@ -15,7 +15,7 @@ import Settings from './pages/Settings';
 import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
-import CSVReader from './components/CSVReader/CSVReader';
+import CSVR from './pages/CSVReader/CSVR';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -43,24 +43,6 @@ function App() {
             </>
           }
         />
-        {/* <Route
-          path="/calendar"
-          element={
-            <>
-              <PageTitle title="Calendar | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Calendar />
-            </>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <>
-              <PageTitle title="Profile | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <Profile />
-            </>
-          }
-        /> */}
         <Route
           path="/forms/form-elements"
           element={
@@ -74,8 +56,8 @@ function App() {
           path="/CSVReader"
           element={
             <>
-              <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" />
-              <CSVReader />
+              <PageTitle title="CSV Reader | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <CSVR />
             </>
           }
         />
