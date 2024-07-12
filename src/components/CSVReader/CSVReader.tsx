@@ -50,14 +50,32 @@ const CSVReader: React.FC = () => {
   };
 
   return (
+    // <div className="CSVReader">
+    //   <h1>CSV File Reader</h1>
+    //   <input type="file" accept=".csv" onChange={handleFileUpload} />
+    //   <Table data={data} />
+    //   {data.length > 0 && (
+    //     <button onClick={downloadJSON}>Download JSON</button>
+    //   )}
+    // </div>
+
     <div className="CSVReader">
-      <h1>CSV File Reader</h1>
-      <input type="file" accept=".csv" onChange={handleFileUpload} />
+      {/* <h1>CSV File Reader</h1> */}
+      <label className="mb-3 block text-black dark:text-white">
+        Attach CSV file
+      </label>
+      <input
+        type="file" accept=".csv" onChange={handleFileUpload}
+        className="w-full md:w-6/12 cursor-pointer rounded-lg border-[1.5px] border-stroke bg-transparent outline-none transition focus:ring-2 focus:ring-primary focus:ring-opacity-50 py-3 px-5 hover:bg-primary hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-white dark:border-form-strokedark dark:bg-form-input dark:hover:bg-opacity-10 dark:focus:border-primary dark:focus:ring-2 dark:focus:ring-primary dark:focus:ring-opacity-50"
+      />
       <Table data={data} />
       {data.length > 0 && (
-        <button onClick={downloadJSON}>Download JSON</button>
+        <button onClick={downloadJSON} className="mt-4 bg-primary text-white py-2 px-4 rounded-lg shadow-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50">
+          Download JSON
+        </button>
       )}
     </div>
+
   );
 };
 
@@ -71,24 +89,31 @@ const Table: React.FC<TableProps> = ({ data }) => {
   const headers = Object.keys(data[0]);
 
   return (
-    <table>
-      <thead>
-        <tr>
-          {headers.map((header) => (
-            <th key={header}>{header}</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        {data.map((row, index) => (
-          <tr key={index}>
+    <div className="overflow-x-auto">
+      <table className="min-w-full divide-y divide-gray-200">
+        <thead className="bg-gray-50">
+          <tr>
             {headers.map((header) => (
-              <td key={header}>{(row as any)[header]}</td>
+              <th key={header} className="px-6 py-3 text-left text-xs font-medium text-gray-900 uppercase tracking-wider">
+                {header}
+              </th>
             ))}
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody className="bg-white divide-y divide-gray-200">
+          {data.map((row, index) => (
+            <tr key={index} className="hover:bg-gray-800">
+              {headers.map((header) => (
+                <td key={header} className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
+                  {(row as any)[header]}
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
   );
 };
 
