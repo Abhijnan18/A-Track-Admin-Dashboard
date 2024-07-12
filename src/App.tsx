@@ -15,6 +15,7 @@ import Settings from './pages/Settings';
 import Tables from './pages/Tables';
 import Alerts from './pages/UiElements/Alerts';
 import Buttons from './pages/UiElements/Buttons';
+import CSVReader from './components/CSVReader/CSVReader';
 
 function App() {
   const [loading, setLoading] = useState<boolean>(true);
@@ -66,6 +67,15 @@ function App() {
             <>
               <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" />
               <FormElements />
+            </>
+          }
+        />
+        <Route
+          path="/CSVReader"
+          element={
+            <>
+              <PageTitle title="Form Elements | TailAdmin - Tailwind CSS Admin Dashboard Template" />
+              <CSVReader />
             </>
           }
         />

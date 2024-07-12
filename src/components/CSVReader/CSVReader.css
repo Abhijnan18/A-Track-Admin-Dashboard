@@ -1,0 +1,32 @@
+.CSVReader {
+    text-align: center;
+    margin: 20px;
+}
+
+input {
+    margin-bottom: 20px;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
